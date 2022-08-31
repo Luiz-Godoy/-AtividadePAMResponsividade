@@ -2,7 +2,7 @@ self.addEventListener('install', event => {
     console.log('sw ./ => installing...');
 
     event.waitUntil(
-        caches.open('static-v1').then(cache => cache.add('index.html'))
+        caches.open('static-v1').then(cache => cache.add('/index.html'))
     );
     
     console.log("sw ./ =>  install event detected e index cacheado!!!");
@@ -22,8 +22,8 @@ self.addEventListener('fetch', event => {
     
     // serve the cat SVG from the cache if the request is
     // same-origin and the path is '/dog.svg'
-    if (url.origin == location.origin && url.pathname == 'index.html') {
-        event. respondWith(caches.match('index.html'));
+    if (url.origin == location.origin && url.pathname == '/index.html') {
+        event. respondWith(caches.match('/index.html'));
     }
 });
 
